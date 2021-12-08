@@ -1,6 +1,7 @@
 //Feladat: 
 
 const array1 = ['apple', 'pear', 'pumpkin'];
+const array2 = ['apple2', 'pear2', 'pumpkin2'];
 
 function addValueToTheEndOfArray(arr, val) {
     arr.push(val);
@@ -34,12 +35,19 @@ let e = {
 //let d = c; //olyan, mint egy parancsikon, ami a c-re mutat
 // let d = {...c}; //másolt bele a c tartalmát(kulcs-érték párjait) ebbe az új objektumba másold bele - SHALLOW COPY
 // let d = Object.assign({}, c); //target uj object SHALLOW COPY
+//let d = JSON.parse(JSON.stringify(c));
 
-c.key = "value1";
-c.key2.subkey = 'value4'; //a begyázott objektum összelinkelődött, csak a legfelső szint másolódik át, a többi parancsikon marad
-d.key = "value2";
-d.key2.subkey = 'value5'; //a begyázott objektum összelinkelődött, csak a legfelső szint másolódik át, a többi parancsikon marad
-console.log(c, " ", d);
+let convertCtoString = JSON.stringify(c);
+let d = JSON.parse(convertCtoString);
+console.log("d típusa: ", typeof d);
+console.log("d típusa: ", typeof c);
+console.log("convertCtoString: ", typeof convertCtoString);
+
+// c.key = "value1";
+// c.key2.subkey = 'value4'; //a begyázott objektum összelinkelődött, csak a legfelső szint másolódik át, a többi parancsikon marad
+// d.key = "value2";
+// d.key2.subkey = 'value5'; //a begyázott objektum összelinkelődött, csak a legfelső szint másolódik át, a többi parancsikon marad
+// console.log(c, " ", d);
 // console.log(c === d);
 //console.log({} === {});//nem ugyan arra a memóriára mutat
 // console.log(c === e);
@@ -48,10 +56,37 @@ console.log(c, " ", d);
 // console.log("value" === "value");
 
 
-
+//Töltsük fel a régi arrayjel és az új valueval is:
 function createNewArrayWithValue(arr, val) {
-    const newArray = [];
+    const newArray = [...arr, val];
 
+    /*
+    const newArray = JSON.parse(JSON.stringify(arr)); //deep copy esetén
+    newArray.push(val);
+    */
 
+    return newArray;
 }
-//console.log(createNewArrayWithValue(array1, 'lemon'));
+console.log(createNewArrayWithValue(array1, 'lemon'));
+
+
+//Tömbök összeadása
+function addArrayToArray (arr1, arr2) {
+    /*
+    for (let i = 0; i < arr1.length; i++) {
+        arr2.push(arr1[i]);
+    }
+    return arr2;
+    */
+
+    /*
+    for (const item of arr1) {
+        arr2.push(item);
+    }
+    return arr2;
+    */
+    return arr1.concat(arr2); //eredeti arrayek maradnak
+    
+}
+console.log(addArrayToArray(array1, array2));
+console.log(array1, " ", array2)
