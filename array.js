@@ -1,5 +1,3 @@
-//Feladat: 
-
 const array1 = ['apple', 'pear', 'pumpkin'];
 const array2 = ['apple2', 'pear2', 'pumpkin2'];
 
@@ -71,7 +69,7 @@ console.log(createNewArrayWithValue(array1, 'lemon'));
 
 
 //Tömbök összeadása
-function addArrayToArray (arr1, arr2) {
+function addArrayToArray(arr1, arr2) {
     /*
     for (let i = 0; i < arr1.length; i++) {
         arr2.push(arr1[i]);
@@ -86,7 +84,7 @@ function addArrayToArray (arr1, arr2) {
     return arr2;
     */
     return arr1.concat(arr2); //eredeti arrayek maradnak
-    
+
 }
 console.log(addArrayToArray(array1, array2));
 console.log(array1, " ", array2)

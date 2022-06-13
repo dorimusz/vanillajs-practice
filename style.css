@@ -1,0 +1,21 @@
+input[type="text"] {
+    background-color: aqua;
+}
+
+.btn-blue span {
+    color: blue
+}
+
+input[type="email"]:invalid {
+    background-color: red;
+} 
+
+.btn .badge {
+    color: blue
+}
+
+button:hover + span::after {
+    content: "click";
+}
+
+span { position: absolute; top: 50%; right: 50%; transform: translate(50%,-50%); }
