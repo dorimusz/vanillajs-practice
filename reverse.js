@@ -8,4 +8,8 @@ const revString = (str) => {
     return reversed
 }
 
+const str = 'hello'
+console.log(str.split('').reverse().join(''))
+
+
 console.log(revString('hello'))
